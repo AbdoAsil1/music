@@ -29,7 +29,7 @@ BOT_USERNAME = getenv("BOT_USERNAME")
 )
 async def khalid(client: Client, message: Message):
     await message.reply_photo(
-        photo=f"https://telegra.ph/file/b6d7f12c06eb782447c7e.png",
+        photo=f"https://te.legra.ph/file/dbb2278bb834ad830c1ac.jpg",
         caption=f"""[WelCoMe To SoUrCe ZerO 🌐](https://t.me/XTIORY)\n\n[ThE BesT SoUrCe oN TelEGrAM 🌐](https://t.me/XTIORY)\n\n[ FoLLOw ThE BuTtOns BeLoW ⚡️](https://t.me/XTIORY)\n\n||[𝗔𝗕𝗗𝗢 𝗔𝗦𝗜𝗟 - ســـــــــيزر](https://t.me/ttccss)||""",
         reply_markup=InlineKeyboardMarkup(
             [
