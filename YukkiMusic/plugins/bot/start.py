@@ -55,7 +55,7 @@ async def start_comm(client, message: Message, _):
             return await message.reply_text(_["song_2"])
         if name[0:3] == "sta":
             m = await message.reply_text(
-                "🔎 Fetching your personal stats.!"
+                "🔎 جلب الإحصائيات الشخصية الخاصة بك.!"
             )
             stats = await get_userss(message.from_user.id)
             tot = len(stats)
@@ -91,7 +91,7 @@ async def start_comm(client, message: Message, _):
                     details = stats.get(vidid)
                     title = (details["title"][:35]).title()
                     if vidid == "telegram":
-                        msg += f"🔗[Telegram Files and Audios](https://t.me/telegram) ** played {count} times**\n\n"
+                        msg += f"🔗[ملفات Telegram والتسجيلات الصوتية](https://t.me/telegram) ** لعب {count} مرات**\n\n"
                     else:
                         msg += f"🔗 [{title}](https://www.youtube.com/watch?v={vidid}) ** played {count} times**\n\n"
                 msg = _["ustats_2"].format(tot, tota, limit) + msg
@@ -147,26 +147,26 @@ async def start_comm(client, message: Message, _):
                 link = result["link"]
                 published = result["publishedTime"]
             searched_text = f"""
-🔍__**Video Track Information**__
+🔍__**معلومات مسار الفيديو**__
 
-❇️**Title:** {title}
+❇️**عنوان:** {title}
 
-⏳**Duration:** {duration} Mins
-👀**Views:** `{views}`
-⏰**Published Time:** {published}
-🎥**Channel Name:** {channel}
-📎**Channel Link:** [Visit From Here]({channellink})
-🔗**Video Link:** [Link]({link})
+⏳**مدة:** {duration} Mins
+👀**المشاهدات:** `{views}`
+⏰**وقت النشر:** {published}
+🎥**اسم القناة:** {channel}
+📎**رابط القناة:** [قم بالزيارة من هنا]({channellink})
+🔗**رابط الفيديو:** [الرابط]({link})
 
-⚡️ __Searched Powered By {config.MUSIC_BOT_NAME}__"""
+⚡️ __تم البحث بواسطة {config.MUSIC_BOT_NAME}__"""
             key = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            text="🎥 Watch ", url=f"{link}"
+                            text="🎥 شاهد", url=f"{link}"
                         ),
                         InlineKeyboardButton(
-                            text="🔄 Close", callback_data="close"
+                            text="🔄 أغلق", callback_data="close"
                         ),
                     ],
                 ]
@@ -204,11 +204,15 @@ async def start_comm(client, message: Message, _):
                 )
             except:
                 await message.reply_text(
+                await message.reply_photo(
+                    photo=config.START_IMG_URL,
                     _["start_2"].format(config.MUSIC_BOT_NAME),
                     reply_markup=InlineKeyboardMarkup(out),
                 )
         else:
             await message.reply_text(
+            await message.reply_photo(
+                photo=config.START_IMG_URL,
                 _["start_2"].format(config.MUSIC_BOT_NAME),
                 reply_markup=InlineKeyboardMarkup(out),
             )
